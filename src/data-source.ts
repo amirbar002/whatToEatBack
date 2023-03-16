@@ -8,7 +8,7 @@ import { Product } from './entity/Product'
 export const AppDataSource = new DataSource({
   type: 'mysql',
   host: 'localhost',
-  port: +8888,
+  port: +3306,
   username: 'root',
   password: 'root',
   database:'sql_eat',
