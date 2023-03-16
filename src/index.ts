@@ -1,33 +1,35 @@
-import 'dotenv/config'
-import express, { Request, Response, Application } from 'express'
-import { AppDataSource } from './data-source'
-import customers from './routers/Person'
-import review from './routers/Review'
-import products from './routers/products'
-import cors from 'cors'
-;(async () => {
+import "dotenv/config";
+import express, { Request, Response, Application } from "express";
+import { AppDataSource } from "./data-source";
+import customers from "./routers/Person";
+import review from "./routers/Review";
+import products from "./routers/products";
+import cors from "cors";
+import * as pg from "pg";
+
+(async () => {
   try {
-    await AppDataSource.initialize()
+    pg.defaults.ssl = true;
 
-    console.log('Successfully connected to mysql')
+    await AppDataSource.initialize();
 
-    const app: Application = express()
-    app.use(cors())
+    console.log("Successfully connected to mysql");
 
-    app.use(express.json())
+    const app: Application = express();
+    app.use(cors());
 
-    app.use('/person', customers)
-    app.use('/review', review)
-    app.use('/products', products)
+    app.use(express.json());
+
+    app.use("/person", customers);
+    app.use("/review", review);
+    app.use("/products", products);
 
     app.use((req: Request, res: Response) => {
-      res.status(400).send('Resource not found!')
-    })
+      res.status(400).send("Resource not found!");
+    });
 
-    app.listen(+5432, () =>
-      console.log('Server is listening on port')
-    )
+    app.listen(+5432, () => console.log("Server is listening on port"));
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
-})()
+})();
