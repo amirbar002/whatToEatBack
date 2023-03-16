@@ -24,7 +24,7 @@ import cors from 'cors'
       res.status(400).send('Resource not found!')
     })
 
-    app.listen('postgres://rccuvafrelxpwx:8ee5bf93b2f270e87f66fb80cf8446a7f8cd81c39fa7989bdfa9f3bdc9366af5@ec2-52-50-161-219.eu-west-1.compute.amazonaws.com:5432/dbs8qr74skobgq', () =>
+    app.listen(+5432, () =>
       console.log('Server is listening on port')
     )
   } catch (error) {

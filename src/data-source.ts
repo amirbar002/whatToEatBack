@@ -6,7 +6,7 @@ import { Person } from './entity/Person'
 import { Product } from './entity/Product'
 
 export const AppDataSource = new DataSource({
-  type: 'mysql',
+  type: 'postgres',
   host: 'ec2-52-50-161-219.eu-west-1.compute.amazonaws.com',
   port: +5432,
   username: 'rccuvafrelxpwx',
