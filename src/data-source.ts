@@ -6,12 +6,12 @@ import { Person } from './entity/Person'
 import { Product } from './entity/Product'
 
 export const AppDataSource = new DataSource({
-  type: RDBMS_MYSQL,
-  host: process.env.MYSQL_HOST,
-  port: +process.env.MYSQL_PORT,
-  username: process.env.MYSQL_USERNAME,
-  password: process.env.MYSQL_PASSWORD,
-  database: process.env.MYSQL_DB_NAME,
+  type: 'mysql',
+  host: 'localhost',
+  port: +8888,
+  username: 'root',
+  password: 'root',
+  database:'sql_eat',
   synchronize: true,
   logging: false,
   entities: [Person, Product,Review], 
