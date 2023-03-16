@@ -9,8 +9,7 @@ import * as pg from "pg";
 
 (async () => {
   try {
-    pg.defaults.ssl = true;
-
+    
     await AppDataSource.initialize();
 
     console.log("Successfully connected to mysql");
