@@ -27,7 +27,7 @@ import * as pg from "pg";
       res.status(400).send("Resource not found!");
     });
 
-    app.listen(+5432, () => console.log("Server is listening on port"));
+    app.listen(process.env.PORT || 5000, () => console.log("Server is listening on port"));
   } catch (error) {
     console.error(error);
   }
