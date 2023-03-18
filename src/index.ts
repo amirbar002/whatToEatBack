@@ -26,7 +26,7 @@ import * as pg from "pg";
     app.use((req: Request, res: Response) => {
       res.status(400).send("Resource not found!");
     });
-    const PORT = process.env.PORT || 8888;
+    const PORT = process.env.PORT || 80;
     app.listen(PORT, () => console.log(`Server is now listening on port ${PORT} `));
   } catch (error) {
     console.error(error);
