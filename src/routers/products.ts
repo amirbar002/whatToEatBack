@@ -37,7 +37,7 @@ router.get('/rundom/:id', async (req: Request, res: Response) => {
   try {
     console.log('start')
     const withRelations = req.query.withRelations === 'true'
-    const [product] = await findProductsToRundom(+req.params.id, withRelations)
+    const product = await findProductsToRundom(+req.params.id, withRelations)
     product ? res.send(product) : res.sendStatus(404)
   } catch (error) {
     console.error(error)
